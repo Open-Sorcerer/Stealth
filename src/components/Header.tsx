@@ -17,14 +17,14 @@ export default function Header() {
     return (
       <div className="flex items-center">
         <Image
-          src="/suvraneel.svg"
+          src="/golden_wizzie.svg"
           height={50}
           width={50}
           priority
           style={{
             objectFit: "contain",
           }}
-          alt="suvraneel"
+          alt="logo"
         />
       </div>
     );
