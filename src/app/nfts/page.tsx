@@ -11,7 +11,7 @@ const Nfts = () => {
   console.log(nfts);
   
   return (
-    <div className="h-full relative mb-40">
+    <div className="w-full h-full relative mb-40">
       <section className="my-5 ">
         <h1 className="text-4xl font-bold mb-16">Your NFTs</h1>
         <NftList />
