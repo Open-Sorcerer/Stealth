@@ -1,7 +1,7 @@
 const SendPrivately = (props: any) => {
-    const {toggle, setToggle} = props;
+    const {toggle, setToggle, amount, setAmount, recipientAddress, setRecipientAddress, handleSend} = props;
     return (
-      <div className='w-full flex flex-col justify-center items-center mt-2 md:mt-10'>
+      <form className='w-full flex flex-col justify-center items-center mt-2 md:mt-10' onSubmit={handleSend}>
         <div className="w-full h-full bg-gradient-to-br from-black to-matte-black p-5 pb-16 rounded-lg shadow-xl shadow-black">
           <div className="flex justify-between items-center mb-3">
             <div className="flex items-center">
@@ -46,7 +46,8 @@ const SendPrivately = (props: any) => {
                 className="bg-transparent block w-full text-base border-none rounded-lg focus:outline-none focus:ring-0  placeholder:text-gray-400 dark:placeholder:text-neutral-600"
                 placeholder="0"
                 autoComplete="off"
-              />
+                onChange={(e) => setAmount(e.target.value)}
+                />
             </div>
             <div className="h-full items-center flex flex-col justify-center px-2">
               <button className="bg-gray-100 text-gray-500 hover:text-gray-600 hover:bg-gray-200 dark:bg-neutral-400 dark:hover:bg-neutral-300 dark:text-neutral-800 dark:hover:text-neutral-700  inline-flex items-center px-2 py-0.5 rounded text-xs font-medium  uppercase cursor-pointer transition-all ease-in duration-150 disabled:opacity-50 disabled:cursor-not-allowed">
@@ -121,19 +122,20 @@ const SendPrivately = (props: any) => {
                 autoComplete="off"
                 data-lpignore="true"
                 defaultValue=""
+                onChange={(e) => setRecipientAddress(e.target.value)}
               />
             </div>
           </div>
           <div className="w-full mt-5">
             <button
-              type="button"
+              type="submit"
               className="w-full rounded-lg bg-amber-500 text-black hover:shadow-amber-500/50 shadow-xl font-medium py-3 px-8 ring-2 ring-gray-900 ring-offset-4 ring-offset-black transition-all"
             >
               Send
             </button>
           </div>
         </div>
-      </div>
+      </form>
     )
   }
 

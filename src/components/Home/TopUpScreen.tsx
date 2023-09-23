@@ -1,10 +1,12 @@
-'use client'
+import { useEffect } from 'react';
 
 const TopUpScreen = (props: any) => {
-    const { toggle, setToggle } = props;
-
+    const { toggle, setToggle, topUpAmount, setTopUpAmount, handleTopUp } = props;
+    useEffect(()=>{
+        console.log(topUpAmount);
+    }, [topUpAmount, setTopUpAmount]);
     return (
-        <div className='w-full h-full flex flex-col justify-start items-start mt-2 md:mt-10'>
+        <form className='w-full h-full flex flex-col justify-start items-start mt-2 md:mt-10' onSubmit={handleTopUp}>
             <div className="w-full h-full bg-gradient-to-br from-black to-matte-black p-5 pb-16 rounded-lg shadow-xl shadow-black">
                 <div className="flex flex-col gap-2 justify-start items-start mb-3">
                     <div className="text-xl text-neutral-200 font-medium capitalize">
@@ -23,6 +25,7 @@ const TopUpScreen = (props: any) => {
                             className="bg-transparent block w-full text-base border-none rounded-lg focus:outline-none focus:ring-0  placeholder:text-gray-400 dark:placeholder:text-neutral-600"
                             placeholder="0"
                             autoComplete="off"
+                            onChange={(e) => setTopUpAmount(e.target.value)}
                         />
                     </div>
                     <div className="h-full items-center flex flex-col justify-center px-2">
@@ -82,7 +85,7 @@ const TopUpScreen = (props: any) => {
 
                 <div className="w-full h-full flex flex-col justify-start items-center gap-4 mt-8">
                     <button
-                        type="button"
+                        type="submit"
                         className="w-full rounded-lg bg-amber-500 text-black hover:shadow-amber-500/50 shadow-xl font-medium py-3 px-8 ring-2 ring-gray-900 ring-offset-4 ring-offset-black transition-all"
                     >
                         Top Up
@@ -96,7 +99,7 @@ const TopUpScreen = (props: any) => {
                     </button>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
 
