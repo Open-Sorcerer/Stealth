@@ -1,12 +1,8 @@
 'use client'
-import { useWallet } from "@hooks/useWallet";
 import { useNfts } from "@hooks/useNfts";
 import { NftList } from "@components/nft/NftList";
 
 const Nfts = () => {
-  const wallet = useWallet()
-  console.log(wallet.publicKey?.toBase58());
-
   const nfts = useNfts();
   console.log(nfts);
   

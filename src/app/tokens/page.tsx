@@ -1,4 +1,8 @@
+
+'use client'
+import useTokens from '@hooks/useTokens'
 import Image from 'next/image'
+import { useEffect } from 'react';
 const Tokens = () => {
 
   const tokensList = [
@@ -23,6 +27,9 @@ const Tokens = () => {
       balance: 20,
     },
   ]
+
+  const tokensByOwner = useTokens();
+  console.log(tokensByOwner.tokens);
 
   return (
     <div className="h-full relative mb-40">
@@ -52,6 +59,9 @@ const Tokens = () => {
               )
             })
           }
+          {/* {tokensByOwner.tokens.map((item:any)=>{
+            return (<div key={item}>{item}</div>)
+          })} */}
         </div>
       </section>
     </div>

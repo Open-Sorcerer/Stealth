@@ -18,6 +18,7 @@ export const useNfts = (reload?: number) => {
       setError(false);
 
       try {
+        console.log(publicKey!)
         let filtered = (await getAssetsByOwner(publicKey!.toBase58())).filter(
           (nft: any) => nft
           // nft.grouping[0]?.group_value ===

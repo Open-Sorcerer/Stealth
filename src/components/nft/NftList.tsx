@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { NftItem } from "./NftItem";
-import { Loading } from "../Loading";
-import { useNfts } from "../../hooks/useNfts";
+import { Loading } from "@components/Loading";
+import { useNfts } from "@hooks/useNfts";
 
 export const NftList = () => {
   const nfts = useNfts();
