@@ -9,7 +9,7 @@ const tabs = [
   { name: "Home", path: "/", icon: FaHome },
   { name: "Tokens", path: "/tokens", icon: FaDollarSign},
   { name: "NFTs", path: "/nfts", icon: FaImage },
-  { name: "Ranking", path: "/ranking", icon: RiVipCrownLine },
+  { name: "About", path: "/about", icon: RiVipCrownLine },
 ];
 
 export function Tabs() {
