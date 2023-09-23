@@ -21,30 +21,14 @@ const useTokens = (reload?: number) => {
         let tokens = (await getTokensByOwner(publicKey!.toBase58()))
 
         console.log("filtered: ", tokens);
+        const supportedTokensArray = Object.keys(tokens).map((tokenName) => {
+          const tokenData = tokens[tokenName];
+          return {
+            ...tokenData,
+          };
+        });
 
-        // filtered = await Promise.all(
-        //   filtered.map(async (nft: any) => {
-        //     if (!nft.content.metadata.attributes) {
-        //       console.log("fetching separate");
-        //       const { data } = await axios.get(nft.content.json_uri);
-
-        //       return {
-        //         ...nft,
-        //         content: {
-        //           ...nft.content,
-        //           metadata: {
-        //             ...nft.content.metadata,
-        //             attributes: data.attributes,
-        //           },
-        //           files: [...nft.content.files, { uri: data.image }],
-        //         },
-        //       };
-        //     }
-
-        //     return nft;
-        //   })
-        // );
-        setTokens(tokens!);
+        setTokens(supportedTokensArray);
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -54,7 +38,7 @@ const useTokens = (reload?: number) => {
     };
 
     if (publicKey) {
-      console.log("fetching tokens");
+      console.log("Fetching Tokens");
       fetchTokens();
     }
   }, [connection, publicKey, reload]);

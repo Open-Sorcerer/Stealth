@@ -51,7 +51,7 @@ export const NftList = () => {
 
   // While loading return Loader
   if (nfts.loading) {
-    return <Loading />;
+    return <Loading stuff="NFTs"/>;
   }
 
   // If no NFTs of collection return message
